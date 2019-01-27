@@ -12,14 +12,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(properties = { InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false",
 		ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false" })
-public class DocCommandTest {
+public class CamelXmlCommandTest {
 
 	@Autowired
 	private Shell shell;
 
 	@Test
 	public void test() throws Exception {
-		System.out.println(shell.evaluate(() -> "generate"));
+		String path = "C:\\Users\\SI\\workspace\\generator\\src\\test\\resources\\camel-context.xml";
+		System.out.println(shell.evaluate(() -> String.format("generate %s", path)));
 	}
 
 }

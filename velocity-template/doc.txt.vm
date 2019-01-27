@@ -1,0 +1,21 @@
+#foreach ($route in $routes)
+ルートID：$route.attrs.id
+  #foreach ($component in $route.childs)
+  
+  ${velocityCount}. $component.name
+  
+    #foreach($attr in $component.attrs.entrySet())
+      $attr.key -> $attr.value
+    #end
+    #foreach($child in $component.childs)
+    
+        ${velocityCount}. $child.name
+            $!child.text
+        #foreach($x in $child.attrs.entrySet())
+            $x.key -> $x.value
+        #end
+     
+    #end
+  #end
+
+#end
